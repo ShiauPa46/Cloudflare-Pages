@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+const posts = allPosts
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Gather all tags with counts
+const tagCounts: Record<string, number> = {};
+posts.forEach((p) => {
+  p.data.tags?.forEach((t) => {
+    tagCounts[t] = (tagCounts[t] || 0) + 1;
+  });
+});
+const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="博客 - ShiauPa">
+  <div class="container blog-page">
+    <h1 class="page-title">博客</h1>
+
+    <!-- Tag Filter -->
+    {allTags.length > 0 && (
+      <nav class="tag-filter">
+        <a href="/blog" class="tag-filter-item active">全部</a>
+        {allTags.map(([tag, count]) => (
+          <a href={`/tags/${tag}`} class="tag-filter-item">
+            {tag} <span class="tag-count">{count}</span>
+          </a>
+        ))}
+      </nav>
+    )}
+
+    <!-- Blog List -->
+    {posts.length === 0 ? (
+      <div class="empty glass">
+        <p>还没有文章，敬请期待...</p>
+      </div>
+    ) : (
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <BlogCard post={post} />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+.blog-page {
+  padding: 3rem 1.5rem 4rem;
+}
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.tag-filter-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--md-surface);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--md-outline);
+  color: var(--md-on-surface-variant);
+  transition: all 0.2s;
+}
+.tag-filter-item:hover,
+.tag-filter-item.active {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-color: var(--md-primary);
+}
+.tag-count {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--md-on-surface-variant);
+  font-size: 1.1rem;
+}
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

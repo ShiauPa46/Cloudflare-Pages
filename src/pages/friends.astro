@@ -1,0 +1,139 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Friend {
+  name: string;
+  url: string;
+  avatar: string;
+  description: string;
+}
+
+// Edit this list to manage your friends' links
+const friends: Friend[] = [
+  {
+    name: "示例友链",
+    url: "https://example.com",
+    avatar: "https://via.placeholder.com/80",
+    description: "这是一个示例友链，你可以在 src/pages/friends.astro 中修改。",
+  },
+  {
+    name: "Astro",
+    url: "https://astro.build",
+    avatar: "https://astro.build/favicon.svg",
+    description: "本网站使用 Astro 框架构建。",
+  },
+];
+---
+
+<BaseLayout title="友链 - ShiauPa">
+  <div class="container friends-page">
+    <h1 class="page-title">友链</h1>
+    <p class="page-desc">与朋友们交换链接，互通往来的地方。</p>
+
+    {friends.length === 0 ? (
+      <div class="empty glass">
+        <p>暂无友链，敬请期待...</p>
+      </div>
+    ) : (
+      <ul class="friends-list">
+        {friends.map((friend) => (
+          <li class="friend-item card">
+            <a href={friend.url} target="_blank" rel="noopener noreferrer" class="friend-link">
+              <img
+                src={friend.avatar}
+                alt={friend.name}
+                class="friend-avatar"
+                width="64"
+                height="64"
+                loading="lazy"
+                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect fill=%22%23ddd%22 width=%2264%22 height=%2264%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2214%22>?</text></svg>'"
+              />
+              <div class="friend-info">
+                <strong class="friend-name">{friend.name}</strong>
+                <span class="friend-desc">{friend.description}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+.friends-page {
+  padding: 3rem 1.5rem 4rem;
+}
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.page-desc {
+  text-align: center;
+  color: var(--md-on-surface-variant);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+.friends-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.friend-item {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.friend-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  color: inherit;
+  text-decoration: none;
+}
+.friend-link:hover {
+  color: inherit;
+}
+.friend-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--md-surface-variant);
+}
+.friend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+.friend-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.friend-desc {
+  font-size: 0.85rem;
+  color: var(--md-on-surface-variant);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--md-on-surface-variant);
+  max-width: 650px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .friend-avatar {
+    width: 46px;
+    height: 46px;
+  }
+}
+</style>
