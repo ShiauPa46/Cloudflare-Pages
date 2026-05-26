@@ -4,7 +4,10 @@ import { SITE } from "../config";
 
 <header class="navbar glass-heavy">
   <div class="navbar-inner container-wide">
-    <a href="/" class="nav-brand">{SITE.name}</a>
+    <a href="/" class="nav-brand">
+      <span class="brand-cn">{SITE.name}</span>
+      <span class="brand-en">{SITE.englishName}</span>
+    </a>
     <nav class="nav-links">
       <a href="/">首页</a>
       <a href="/blog">博客</a>
@@ -29,13 +32,24 @@ import { SITE } from "../config";
   padding: 0.75rem 1.5rem;
 }
 .nav-brand {
-  font-family: var(--font-en);
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  letter-spacing: -0.5px;
+}
+.brand-cn {
+  font-family: var(--font-cn);
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--md-primary);
-  letter-spacing: -0.5px;
 }
-.nav-brand:hover {
+.brand-en {
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #999;
+}
+.nav-brand:hover .brand-cn {
   color: #3A7BC8;
 }
 .nav-links {

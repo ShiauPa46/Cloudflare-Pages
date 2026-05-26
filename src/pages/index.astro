@@ -19,6 +19,7 @@ import { SITE } from "../config";
         loading="eager"
       />
       <h1 class="name">{SITE.name}</h1>
+      <p class="english-name">{SITE.englishName}</p>
       <p class="motto">{SITE.motto}</p>
       <div class="social-wrapper">
         <SocialLinks />
@@ -71,16 +72,30 @@ import { SITE } from "../config";
   font-family: var(--font-cn);
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--md-on-surface);
-  margin-bottom: 0.5rem;
+  color: var(--md-primary);
+  margin-bottom: 0.2rem;
   letter-spacing: 2px;
 }
-.motto {
+.english-name {
+  font-family: var(--font-en);
   font-size: 1.1rem;
+  color: #999;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+.motto {
+  font-size: 1.05rem;
   color: var(--md-on-surface-variant);
   margin-bottom: 2rem;
   font-weight: 400;
-  letter-spacing: 1px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  white-space: pre-line;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
 }
 .social-wrapper {
   margin-top: 0.5rem;

@@ -24,10 +24,6 @@
   --md-elevation-2: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.10);
   --md-elevation-3: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.10);
 
-  /* Blur */
-  --blur-amount: 20px;
-  --blur-saturate: 1.8;
-
   /* Typography */
   --font-cn: 'Noto Sans SC', sans-serif;
   --font-en: 'Lato', sans-serif;
@@ -55,7 +51,7 @@ html {
 }
 
 body {
-  font-family: var(--font-cn), var(--font-en), sans-serif;
+  font-family: var(--font-en), var(--font-cn), sans-serif;
   color: var(--md-on-surface);
   min-height: 100vh;
   background: url('/Background.jpg') no-repeat center center fixed;
@@ -88,26 +84,20 @@ img {
 
 /* === Utility: Glass Surface === */
 .glass {
-  background: var(--md-surface);
-  backdrop-filter: blur(var(--blur-amount)) saturate(var(--blur-saturate));
-  -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--blur-saturate));
+  background: #D4ECEE;
   border: 1px solid var(--md-outline);
   border-radius: var(--radius-lg);
 }
 
 .glass-heavy {
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(24px) saturate(2);
-  -webkit-backdrop-filter: blur(24px) saturate(2);
+  background: #D4ECEE;
   border: 1px solid var(--md-outline);
   border-radius: var(--radius-xl);
 }
 
 /* === Utility: Material Card === */
 .card {
-  background: var(--md-surface);
-  backdrop-filter: blur(var(--blur-amount)) saturate(var(--blur-saturate));
-  -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--blur-saturate));
+  background: #D4ECEE;
   border: 1px solid var(--md-outline);
   border-radius: var(--radius-lg);
   box-shadow: var(--md-elevation-1);

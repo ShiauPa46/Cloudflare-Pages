@@ -24,10 +24,10 @@ const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
 
     <!-- Tag Filter -->
     {allTags.length > 0 && (
-      <nav class="tag-filter">
-        <a href="/blog" class="tag-filter-item active">全部</a>
+      <nav class="tag-filter" id="tagFilter">
+        <a href="/blog" class="tag-filter-item active" data-tag="">全部</a>
         {allTags.map(([tag, count]) => (
-          <a href={`/tags/${tag}`} class="tag-filter-item">
+          <a href={`/tags/${tag}`} class="tag-filter-item" data-tag={tag}>
             {tag} <span class="tag-count">{count}</span>
           </a>
         ))}
@@ -40,12 +40,16 @@ const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
         <p>还没有文章，敬请期待...</p>
       </div>
     ) : (
-      <div class="blog-grid">
+      <div class="blog-grid" id="blogGrid">
         {posts.map((post) => (
           <BlogCard post={post} />
         ))}
       </div>
     )}
+
+    <div class="empty glass" id="emptyMsg" style="display:none">
+      <p>该标签下暂无文章。</p>
+    </div>
   </div>
 </BaseLayout>
 
@@ -74,8 +78,7 @@ const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
   font-weight: 500;
   padding: 0.4rem 0.9rem;
   border-radius: var(--radius-full);
-  background: var(--md-surface);
-  backdrop-filter: blur(var(--blur-amount));
+  background: #D4ECEE;
   border: 1px solid var(--md-outline);
   color: var(--md-on-surface-variant);
   transition: all 0.2s;
@@ -107,3 +110,64 @@ const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
   }
 }
 </style>
+
+<script>
+  (function() {
+    const grid = document.getElementById('blogGrid');
+    const emptyMsg = document.getElementById('emptyMsg');
+    if (!grid) return;
+
+    function filterByTag(tag) {
+      // Update active state on filter items
+      document.querySelectorAll('.tag-filter-item').forEach(el => {
+        el.classList.toggle('active', (el.dataset.tag || '') === tag);
+      });
+
+      let visibleCount = 0;
+      document.querySelectorAll('.blog-card').forEach(card => {
+        const tags = (card.dataset.tags || '').split(',').filter(Boolean);
+        if (!tag || tags.includes(tag)) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show empty message if no cards visible
+      grid.style.display = visibleCount === 0 ? 'none' : '';
+      if (emptyMsg) emptyMsg.style.display = visibleCount === 0 ? '' : 'none';
+    }
+
+    function getTagFromPath() {
+      const parts = window.location.pathname.replace(/\/$/, '').split('/');
+      if (parts[1] === 'tags' && parts[2]) {
+        return decodeURIComponent(parts[2]);
+      }
+      return '';
+    }
+
+    // Click handlers — intercept tag clicks for client-side filtering
+    document.querySelectorAll('.tag-filter-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tag = item.dataset.tag || '';
+        const url = tag ? `/tags/${encodeURIComponent(tag)}` : '/blog';
+        history.pushState(null, '', url);
+        filterByTag(tag);
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', () => {
+      filterByTag(getTagFromPath());
+    });
+
+    // On page load, check if current URL has a tag
+    const currentTag = getTagFromPath();
+    if (currentTag) {
+      filterByTag(currentTag);
+    }
+  })();
+</script>

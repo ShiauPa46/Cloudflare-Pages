@@ -5,7 +5,16 @@
       "Bash(npm create *)",
       "Bash(npm install *)",
       "Bash(npx astro *)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(npm run *)",
+      "Bash(where npm *)",
+      "Read(//c/Program Files/nodejs/**)",
+      "Read(//c/Users/Shiau/AppData/Roaming/**)",
+      "Read(//c/Users/Shiau/AppData/Local/**)",
+      "Bash(cmd //c \"npm --version\")",
+      "Bash(/c/Windows/System32/cmd.exe //c \"npm --version\")",
+      "Bash(/mnt/c/Windows/System32/cmd.exe //c \"npm --version\")",
+      "Bash(/c/Windows/System32/cmd.exe //c \"cd /d c:\\\\Users\\\\Shiau\\\\Desktop\\\\code\\\\Cloudflare-Pages && npm run build\")"
     ]
   }
 }
