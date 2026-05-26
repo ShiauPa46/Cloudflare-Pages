@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 
 const { post } = Astro.props;
 const { slug, data } = post;
-const href = `/blog/${slug}`;
+const href = `/blog/${slug}#disqus_thread`;
 ---
 
 <article class="blog-card card" data-tags={data.tags?.join(',') ?? ''}>

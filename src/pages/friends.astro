@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../config";
 
 interface Friend {
   name: string;
@@ -25,7 +26,7 @@ const friends: Friend[] = [
 ];
 ---
 
-<BaseLayout title="友链 - ShiauPa">
+<BaseLayout title={`友链 - ${SITE.title}`}>
   <div class="container friends-page">
     <h1 class="page-title">友链</h1>
     <p class="page-desc">与朋友们交换链接，互通往来的地方。</p>
