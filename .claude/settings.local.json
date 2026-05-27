@@ -15,7 +15,8 @@
       "Bash(/c/Windows/System32/cmd.exe //c \"npm --version\")",
       "Bash(/mnt/c/Windows/System32/cmd.exe //c \"npm --version\")",
       "Bash(/c/Windows/System32/cmd.exe //c \"cd /d c:\\\\Users\\\\Shiau\\\\Desktop\\\\code\\\\Cloudflare-Pages && npm run build\")",
-      "Bash(/c/Windows/System32/cmd.exe //c \"cd /d c:\\\\Users\\\\Shiau\\\\Desktop\\\\code\\\\Cloudflare-Pages && rmdir /s /q dist && rmdir /s /q .astro && rmdir /s /q node_modules\\\\.astro 2>nul & npm run build\")"
+      "Bash(/c/Windows/System32/cmd.exe //c \"cd /d c:\\\\Users\\\\Shiau\\\\Desktop\\\\code\\\\Cloudflare-Pages && rmdir /s /q dist && rmdir /s /q .astro && rmdir /s /q node_modules\\\\.astro 2>nul & npm run build\")",
+      "Bash(curl -s http://localhost:4321/)"
     ]
   }
 }
