@@ -1,7 +1,7 @@
 ---
 title: "我与夏日"
 subtitle: "躲在屋子里，看着刺眼的反射日光，见证本站诞生"
-date: 2026-5-27
+date: 2026-05-27
 tags: ["随笔", "生活"]
 cover: "/image/cover-me-and-summer.jpg"
 ---
