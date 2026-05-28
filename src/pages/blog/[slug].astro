@@ -46,7 +46,11 @@ const { Content } = await post.render();
     </footer>
 
     <!-- Disqus Comments -->
-    <DisqusComments shortname={DISQUS_SHORTNAME} slug={slug} title={data.title} />
+    <section class="comments-section">
+      <h2 class="comments-heading">评论</h2>
+      <p class="comments-notice">评论系统基于 Disqus，部分网络环境可能加载较慢或无法加载。</p>
+      <DisqusComments shortname={DISQUS_SHORTNAME} slug={slug} title={data.title} />
+    </section>
   </article>
 </BaseLayout>
 
@@ -157,6 +161,34 @@ const { Content } = await post.render();
 }
 .back-link:hover {
   text-decoration: underline;
+}
+.comments-section {
+  max-width: 750px;
+  margin: 2rem auto 0;
+}
+.comments-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  position: relative;
+  padding-left: 0.8rem;
+}
+.comments-heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1.2em;
+  background: var(--md-primary);
+  border-radius: 2px;
+}
+.comments-notice {
+  font-size: 0.85rem;
+  color: var(--md-on-surface-variant);
+  opacity: 0.7;
+  margin-bottom: 1rem;
 }
 @media (max-width: 600px) {
   .article-title {
