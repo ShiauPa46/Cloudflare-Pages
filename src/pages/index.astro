@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialLinks from "../components/SocialLinks.astro";
-import IntroMd from "../data/intro.md";
 import { SITE } from "../config";
 ---
 
@@ -30,15 +29,6 @@ import { SITE } from "../config";
     </div>
   </section>
 
-  <!-- Self-Introduction Section -->
-  <section class="intro-section container" id="intro">
-    <div class="intro-card glass-heavy">
-      <h2 class="section-title">About</h2>
-      <div class="intro-content">
-        <IntroMd />
-      </div>
-    </div>
-  </section>
 </BaseLayout>
 
 <style>
@@ -112,42 +102,6 @@ import { SITE } from "../config";
   60% { transform: translateY(4px); }
 }
 
-/* === Intro Section === */
-.intro-section {
-  padding: 2rem 1.5rem 4rem;
-}
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-  color: var(--md-on-surface);
-}
-.intro-card {
-  padding: 2rem 2.5rem;
-}
-.intro-content {
-  line-height: 1.8;
-  color: var(--md-on-surface);
-}
-.intro-content p {
-  margin-bottom: 0.8rem;
-}
-.intro-content ul {
-  list-style-position: outside;
-  padding-left: 1.2rem;
-  margin-bottom: 0.8rem;
-}
-.intro-content li {
-  margin-bottom: 0.3rem;
-}
-.intro-content code {
-  background: var(--md-primary-container);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-family: 'Courier New', monospace;
-}
-
 @media (max-width: 600px) {
   .name {
     font-size: 1.8rem;
@@ -155,9 +109,6 @@ import { SITE } from "../config";
   .avatar {
     width: 110px;
     height: 110px;
-  }
-  .intro-card {
-    padding: 1.5rem;
   }
 }
 </style>
