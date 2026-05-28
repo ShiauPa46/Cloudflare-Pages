@@ -3,7 +3,7 @@ title: "关于这里"
 subtitle: "我和我的小站的简介"
 date: 2026-05-27
 tags: ["生活"]
-cover: "/Avatar.png"
+cover: "/Background.png"
 ---
 
 你好！感谢你打开这个网站。这里是晓怕的宁静一隅，我叫晓怕ShiauPa，名字没有任何意义，但或许很好听？最大的愿望是和大家做朋友！
