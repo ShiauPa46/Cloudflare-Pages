@@ -19,19 +19,29 @@ cover: "/Background.jpg"
 * 现居：广西
 
 ## 个人简介
-指派男性，性别不明，喜欢二次元正太和三次元可爱的男孩子，对LGBTQ+友好。喜欢宅在家里捣鼓语言和电脑。对语言和文字感兴趣，曾经是一名Conlanger（造语者），但是没有一门完整的造语作品。喜欢Vocaloid、J-Pop和欧美流行，大部分类型的歌也都能听下去。喜欢和朋友玩Minecraft和GTA Online，欢迎找我联机！本人ADHDer、文字表达能力低下、懒散拖沓、长得不太好看，还请见谅！🥹
+指派男性，性别不明，喜欢二次元正太和三次元可爱的男孩子，对LGBTQ+友好。喜欢宅在家里捣鼓语言和电脑。对语言和文字感兴趣，但是学什么都懂一点学什么都学不精。曾经是一名Conlanger（造语者），但是没有一门完整的造语作品。喜欢Vocaloid、J-Pop和欧美流行，大部分类型的歌也都能听下去。喜欢和朋友玩Minecraft和GTA Online，欢迎找我联机！本人ADHDer、文字表达能力低下、懒散拖沓、长得不太好看，还请见谅！🥹
 
 ### 🎵喜欢的艺人
 * [平沢進](https://susumuhirasawa.com/)
 * [Sakanaction](https://sakanaction.jp/)
 * [シャノン](https://x.com/shannon_gohan/)
-……
+* ……
 
 ### 🎮喜欢的游戏
 * [Minecraft](https://www.minecraft.net/en-us)
 * [Cities: Skylines II](https://www.paradoxinteractive.com/games/cities-skylines-ii/about)
 * [Rimworld](https://rimworldgame.com/)
-……
+* ……
+
+### 💬学习的语言
+* 汉语普通话（母语）
+* 汉语西南官话桂柳片（母语）
+* 汉语广东话（听的懂一点）
+* 英语（高一水平）
+* 日语（N4水平）
+* 韩语/朝鲜语（初学）
+* 越南语（初学）
+* 世界语（初学）
 
 ### 😺可以找我干的事
 * 扩列
@@ -40,9 +50,11 @@ cover: "/Background.jpg"
 * 摸摸
 * 玩游戏
 * 面基吃饭
-……
+* ……
 
 # 关于本站
 这个小站可能会写一些不明所以的碎碎念（随笔），请见谅！
+
 如果你对网站有什么建设性的意见的话，欢迎发表！
+
 如果你想交换友链，可以通过QQ或者Telegram联系我交换友链。
